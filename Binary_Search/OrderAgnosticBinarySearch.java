@@ -3,10 +3,8 @@ package Binary_Search;
 public class OrderAgnosticBinarySearch {
 
     /**
-     * An "Order Agnostic Binary Search" is a variation of the binary search
-     * algorithm
-     * that can be used to search for a target value in a sorted array, regardless
-     * of
+     * An "Order Agnostic Binary Search" is a variation of the binary search algorithm
+     * that can be used to search for a target value in a sorted array, regardless of
      * whether the array is in ascending or descending order.
      *
      * @param arr    the array to search in

@@ -3,7 +3,8 @@ package Binary_Search;
 public class BinarySearch{
     /**
      * This method performs a binary search on the given array to find a target element.
-     * It uses an iterative approach to repeatedly divide the search range in half until the target element is found or the search range is exhausted.
+     * It uses an iterative approach to repeatedly divide the search range in half until 
+     * the target element is found or the search range is exhausted.
      * 
      * @param arr The sorted array to be searched
      * @param target The element to be found
@@ -14,15 +15,11 @@ public class BinarySearch{
         int end = arr.length - 1;
         while (start <= end) {
             /*
-             * We use start + (end - start) / 2 to calculate the middle index of the search
-             * range.
-             * This is done to avoid the possibility of an integer overflow when the sum of
-             * start and end
+             * We use start + (end - start) / 2 to calculate the middle index of the search range.
+             * This is done to avoid the possibility of an integer overflow when the sum of start and end
              * exceeds the maximum value that an integer can hold.
-             * By subtracting start from end first and then dividing the difference by 2, we
-             * ensure that
-             * the calculation is performed correctly and prevent an integer overflow from
-             * occurring.
+             * By subtracting start from end first and then dividing the difference by 2, we ensure that
+             * the calculation is performed correctly and prevent an integer overflow from occurring.
              */
             int mid = start + (end - start) / 2;
             if (arr[mid] == target) {
