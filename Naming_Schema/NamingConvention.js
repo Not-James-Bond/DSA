@@ -17,8 +17,8 @@
                             ]
 # So for london example, we would see the output
 # aa-0, aa-1, aa-2, aa-3, aa/0, aa/1, aa/2, aa/3, ab-0, and so on
-
 */
+
 // ---------------------Recursive-------------------------- //
 /**
  * Generate scooter codes based on a given naming scheme.
@@ -69,9 +69,10 @@ function generateScooterCodes(namingScheme, count) {
   const codes2 = generateScooterCodes(londonNamingScheme2, count2);
   
   console.log(codes2);
-// */  
+ 
 // -----------Permutaition(Similar to Recursive)------------ //
 /**
+ * Very Unopimized since it Generates all the possible permutations and then slices
  * Generates scooter codes based on a naming scheme.
  * 
  * @param {Array} namingScheme - The naming scheme for the codes.
@@ -117,9 +118,54 @@ const count3 = 20;
 const codes3 = generateScooterCodes(londonNamingScheme3, count3);
 
 console.log(codes3);
-// */
 
-// --------------------------------------------------------------- //
+// -----------Iterative Optimized------------ //
+
+function generateScooterCodes(namingScheme, count) {
+  const result = [];
+  const partsCount = namingScheme.length;
+  const indices = Array(partsCount).fill(0);
+
+  while (result.length < count) {
+    let code = "";
+    for (let i = 0; i < partsCount; i++) {
+      const scheme = namingScheme[i];
+      const schemeIndex = indices[i];
+      code += scheme[schemeIndex];
+    }
+    result.push(code);
+
+    // Update the indices to generate the next code
+    let j = partsCount - 1;
+    while (j >= 0 && indices[j] === namingScheme[j].length - 1) {
+      indices[j] = 0;
+      j--;
+    }
+    if (j >= 0) {
+      indices[j]++;
+    } else {
+      break; // No more codes can be generated
+    }
+  }
+
+  return result;
+}
+
+// Example usage for the london_naming_scheme
+const londonNamingScheme4 = [
+  "abcdefghjklmnpqvwxy",
+  "abcdefghjklmnpqvwxy",
+  "-/",
+  "0123",
+];
+
+const count4 = 20;
+const codes4 = generateScooterCodes(londonNamingScheme4, count4);
+
+console.log(codes4);
+
+
+// ----------------------Best Optimized--------------------------- //
 
 /**
  * Generates scooter codes based on the provided naming scheme and count.
