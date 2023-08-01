@@ -19,7 +19,7 @@
 # aa-0, aa-1, aa-2, aa-3, aa/0, aa/1, aa/2, aa/3, ab-0, and so on
 
 */
-
+// ---------------------Recursive-------------------------- //
 /**
  * Generate scooter codes based on a given naming scheme.
  * 
@@ -70,7 +70,7 @@ function generateScooterCodes(namingScheme, count) {
   
   console.log(codes2);
 // */  
-
+// -----------Permutaition(Similar to Recursive)------------ //
 /**
  * Generates scooter codes based on a naming scheme.
  * 
@@ -119,6 +119,7 @@ const codes3 = generateScooterCodes(londonNamingScheme3, count3);
 console.log(codes3);
 // */
 
+// --------------------------------------------------------------- //
 
 /**
  * Generates scooter codes based on the provided naming scheme and count.
@@ -164,3 +165,5 @@ const count = 20;
 const codes = generateScooterCodes(londonNamingScheme, count);
 
 console.log(codes);
+
+// -----------------------------------------------------------------//
