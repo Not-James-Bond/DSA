@@ -122,41 +122,41 @@ console.log(codes3);
 // -----------Iterative Optimized------------ //
 
 function generateScooterCodes(namingScheme, count) {
-  const result = [];
-  const partsCount = namingScheme.length;
-  const indices = Array(partsCount).fill(0);
+    const result = [];
+    const partsCount = namingScheme.length;
+    const indices = Array(partsCount).fill(0);
 
-  while (result.length < count) {
-    let code = "";
-    for (let i = 0; i < partsCount; i++) {
-      const scheme = namingScheme[i];
-      const schemeIndex = indices[i];
-      code += scheme[schemeIndex];
-    }
-    result.push(code);
+    while (result.length < count) {
+        let code = '';
+        for (let i = 0; i < partsCount; i++) {
+            const scheme = namingScheme[i];
+            const schemeIndex = indices[i];
+            code += scheme[schemeIndex];
+        }
+        result.push(code);
 
-    // Update the indices to generate the next code
-    let j = partsCount - 1;
-    while (j >= 0 && indices[j] === namingScheme[j].length - 1) {
-      indices[j] = 0;
-      j--;
+        // Update the indices to generate the next code
+        let j = partsCount - 1;
+        while (j >= 0 && indices[j] === namingScheme[j].length - 1) {
+            indices[j] = 0;
+            j--;
+        }
+        if (j >= 0) {
+            indices[j]++;
+        } else {
+            break; // No more codes can be generated
+        }
     }
-    if (j >= 0) {
-      indices[j]++;
-    } else {
-      break; // No more codes can be generated
-    }
-  }
 
-  return result;
+    return result;
 }
 
 // Example usage for the london_naming_scheme
 const londonNamingScheme4 = [
-  "abcdefghjklmnpqvwxy",
-  "abcdefghjklmnpqvwxy",
-  "-/",
-  "0123",
+  'abcdefghjklmnpqvwxy', 
+  'abcdefghjklmnpqvwxy', 
+  '-/', 
+  '0123'
 ];
 
 const count4 = 20;
